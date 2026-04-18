@@ -1,0 +1,23 @@
+{% comment %} TrendHive Hero Section {% endcomment %}
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to TrendHive</h1>
+    <p>Your one-stop shop for the latest trends!</p>
+    <a href="#shop-now" class="btn">Shop Now</a>
+  </div>
+</section>
+
+{% comment %} Product Showcase {% endcomment %}
+<section id="product-showcase">
+  <h2>Featured Products</h2>
+  <div class="product-grid">
+    {%- for product in collections.all.products limit: 6 -%}
+      <div class="product-item">
+        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}"/>
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.price | money }}</p>
+        <a href="{{ product.url }}" class="btn">View Product</a>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
