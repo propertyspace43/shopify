@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f4f4f4;
+        }
+        .clock {
+            text-align: center;
+        }
+        .time-zone {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="time-zone">
+            <h2>New York (UTC-4)</h2>
+            <p id="new-york-time"></p>
+        </div>
+        <div class="time-zone">
+            <h2>London (UTC+1)</h2>
+            <p id="london-time"></p>
+        </div>
+        <div class="time-zone">
+            <h2>Tokyo (UTC+9)</h2>
+            <p id="tokyo-time"></p>
+        </div>
+        <div class="time-zone">
+            <h2>Sydney (UTC+10)</h2>
+            <p id="sydney-time"></p>
+        </div>
+        <div class="time-zone">
+            <h2>Dubai (UTC+4)</h2>
+            <p id="dubai-time"></p>
+        </div>
+        <div class="time-zone">
+            <h2>Los Angeles (UTC-7)</h2>
+            <p id="la-time"></p>
+        </div>
+    </div>
+    <script>
+        function updateTime() {
+            const utcDate = new Date();
+            document.getElementById('new-york-time').innerText = utcDate.toLocaleString('en-US', { timeZone: 'America/New_York' });
+            document.getElementById('london-time').innerText = utcDate.toLocaleString('en-GB', { timeZone: 'Europe/London' });
+            document.getElementById('tokyo-time').innerText = utcDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
+            document.getElementById('sydney-time').innerText = utcDate.toLocaleString('en-AU', { timeZone: 'Australia/Sydney' });
+            document.getElementById('dubai-time').innerText = utcDate.toLocaleString('en-AE', { timeZone: 'Asia/Dubai' });
+            document.getElementById('la-time').innerText = utcDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+        }
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial call to display time immediately
+    </script>
+</body>
+</html>
